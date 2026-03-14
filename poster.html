@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N21 Soundboard - Promo Poster</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Rajdhani:wght@500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffaa00;
+            --dark: #0a0f14;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            font-family: 'Rajdhani', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 170, 0, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 210, 255, 0.1), transparent 40%);
+        }
+
+        /* Militer Grid Pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .poster-container {
+            position: relative;
+            width: 1200px;
+            height: 630px;
+            background: radial-gradient(circle at 30% 70%, #1a202c 0%, #0d1117 80%);
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            z-index: 1;
+        }
+
+        /* Abstract Glows behind container */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            filter: blur(200px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Yellow Accent Bar */
+        .accent-bar {
+            position: absolute;
+            top: 0;
+            left: 60px;
+            width: 200px;
+            height: 8px;
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Left Content Area */
+        .content-left {
+            flex: 1;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 170, 0, 0.2);
+            border-left: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            width: fit-content;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 85px;
+            line-height: 0.9;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to bottom, #ffffff, #a0aec0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+        }
+
+        h1 span {
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+            display: block;
+            text-shadow: 0 0 30px rgba(255, 170, 0, 0.4);
+        }
+
+        p.desc {
+            font-size: 22px;
+            color: #a0aec0;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #e2e8f0;
+            letter-spacing: 1px;
+        }
+
+        .feature-item svg {
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Right Visual Area */
+        .visual-right {
+            flex: 1.2;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Abstract Glows behind phones */
+        .visual-right::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* Fake Screen UI (Glassmorphism) */
+        .mockup-screen {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px) saturate(150%);
+            -webkit-backdrop-filter: blur(25px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Tablet/OBS View */
+        .screen-obs {
+            width: 420px;
+            height: 220px;
+            right: 40px;
+            top: 70px;
+            transform: rotate(6deg);
+            background: rgba(15, 20, 25, 0.85);
+            border-radius: 16px;
+            border-left: 8px solid var(--primary);
+            justify-content: center;
+            padding-left: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .obs-title {
+            color: #718096;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .obs-sound {
+            font-family: 'Teko', sans-serif;
+            font-size: 45px;
+            line-height: 1;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .obs-waves {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        .wave {
+            width: 6px;
+            background: var(--primary);
+            border-radius: 3px;
+            animation: equalizer 1s infinite alternate ease-in-out;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .wave:nth-child(4) {
+            animation-delay: 0.1s;
+        }
+
+        /* Smartphone Mobile View */
+        .screen-mobile {
+            width: 290px;
+            height: 520px;
+            left: 20px;
+            bottom: -20px;
+            transform: rotate(-6deg);
+            border: 8px solid #1a202c;
+            border-radius: 35px;
+            background: #eef2f6;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            animation: float 8s ease-in-out infinite reverse;
+            overflow: hidden;
+            box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.8), inset 0 0 0 2px #4a5568;
+        }
+
+        .mob-header {
+            font-family: 'Teko', sans-serif;
+            font-size: 26px;
+            color: #fff;
+            background: #1a202c;
+            margin: -15px -15px 15px -15px;
+            padding: 20px 20px 10px 20px;
+            border-bottom: 4px solid var(--primary);
+            letter-spacing: 2px;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .mob-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .mob-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e0;
+            border-radius: 12px;
+            padding: 12px 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .mob-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .mob-icon {
+            font-size: 24px;
+        }
+
+        .mob-name {
+            font-weight: 700;
+            font-size: 12px;
+            color: #1a202c;
+            text-transform: uppercase;
+        }
+
+        /* Brand URL at bottom */
+        .footer-url {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #718096;
+            letter-spacing: 2px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(var(--rot, 5deg));
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(var(--rot, 5deg));
+            }
+
+            100% {
+                transform: translateY(0) rotate(var(--rot, 5deg));
+            }
+        }
+
+        @keyframes equalizer {
+            0% {
+                height: 10px;
+            }
+
+            100% {
+                height: 40px;
+                box-shadow: 0 0 10px var(--primary);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="poster-container" id="capture-area">
+        <div class="accent-bar"></div>
+
+        <div class="content-left">
+            <div class="badge">Open Source Release</div>
+            <h1>N21 Cloud<br><span>Soundboard.</span></h1>
+            <p class="desc">The Ultimate OBS Stream Deck alternative. Control your broadcast audio remotely from your
+                smartphone with zero latency using WebSockets & MQTT.</p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Remote Control via Secure WebSockets
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
+                    Liquid HUD Visualizer for OBS Screen
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    Fetch Web Audio Directly (MyInstants)
+                </div>
+            </div>
+        </div>
+
+        <div class="visual-right">
+            <!-- Mobile Controller Panel -->
+            <div class="mockup-screen screen-mobile" style="--rot: -8deg;">
+                <div class="mob-header">
+                    // N21 SOUND_DECK <span style="display:block; font-size: 14px; color: var(--primary);">CONNECTED TO
+                        OBS</span>
+                </div>
+                <div class="mob-grid">
+                    <div class="mob-btn" style="border-top: 3px solid #e53e3e"><span class="mob-icon">💥</span><span
+                            class="mob-name">Vine Boom</span></div>
+                    <div class="mob-btn" style="border-top: 3px solid #38a169"><span class="mob-icon">💨</span><span
+                            class="mob-name">Fart Reverb</span></div>
+                    <div class="mob-btn" style="border-top: 3px solid #ffaa00"><span class="mob-icon">🐢</span><span
+                            class="mob-name">Aughhh</span></div>
+                    <div class="mob-btn" style="border-top: 3px solid #3182ce"><span class="mob-icon">🎻</span><span
+                            class="mob-name">Sad Violin</span></div>
+                    <div class="mob-btn" style="border-top: 3px solid #f6e05e"><span class="mob-icon">⭐</span><span
+                            class="mob-name">GTA Passed</span></div>
+                    <div class="mob-btn" style="border-top: 3px solid #eab308"><span class="mob-icon">🎺</span><span
+                            class="mob-name">SBob Fail</span></div>
+                </div>
+            </div>
+
+            <!-- OBS Output View -->
+            <div class="mockup-screen screen-obs" style="--rot: 5deg;">
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <span style="font-size: 50px;">💥</span>
+                    <div>
+                        <div class="obs-title">NOW PLAYING</div>
+                        <div class="obs-sound">VINE BOOM</div>
+                    </div>
+                    <div class="obs-waves">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-url">GITHUB.COM/YOUR-REPO/N21-SOUNDBOARD</div>
+    </div>
+
+    <script>
+        // Simple script to allow user to save the poster
+        console.log("Tip: Use browser extensions like 'GoFullPage' or built-in screenshot tools (Win+Shift+S) to capture this poster frame perfectly!");
+    </script>
+</body>
+
+</html>

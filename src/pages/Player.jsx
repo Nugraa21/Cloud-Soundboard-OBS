@@ -102,41 +102,6 @@ export default function Player() {
 
     return (
         <div className={`obs-player ${fade ? 'fade-out' : ''}`}>
-            {/* INITIAL CONNECTION OVERLAY */}
-            {!nowPlaying && (
-                <div className="connection-overlay">
-                    <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', margin: '20px', maxWidth: '400px', borderRadius: '24px' }}>
-                        {mqttStatus === 'connecting' && (
-                            <>
-                                <div className="spinner-hud" style={{ width: '40px', height: '40px', borderTopColor: 'var(--text-primary)' }}></div>
-                                <div className="loader-text">
-                                    <h3 style={{ fontSize: '1.5rem', color: 'var(--text-primary)' }}>SYSTEM INITIALIZATION</h3>
-                                    <p style={{ color: 'var(--accent-primary)', opacity: 1, fontWeight: 700 }}>SEARCHING BROKER SERVER...</p>
-                                </div>
-                            </>
-                        )}
-                        {mqttStatus === 'connected' && (
-                            <>
-                                <div className="playing-icon" style={{ fontSize: '3rem', marginBottom: '10px' }}>🟢</div>
-                                <div className="loader-text">
-                                    <h3 style={{ fontSize: '1.5rem', color: '#38a169' }}>CONNECTION SECURED</h3>
-                                    <p style={{ color: 'var(--text-primary)', opacity: 0.9, fontWeight: 700 }}>OBS READY // ROOM ID: {roomId.toUpperCase()}</p>
-                                </div>
-                            </>
-                        )}
-                        {mqttStatus === 'error' && (
-                            <>
-                                <div className="playing-icon" style={{ fontSize: '3rem', marginBottom: '10px' }}>⚠️</div>
-                                <div className="loader-text">
-                                    <h3 style={{ fontSize: '1.5rem', color: 'var(--danger)' }}>CONNECTION LOST</h3>
-                                    <p style={{ color: 'var(--danger)', opacity: 0.9, fontWeight: 700 }}>Check Internet or refresh the URL</p>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </div>
-            )}
-
             {/* Tampilan Visual (Muncu di layar OBS sesaat pas suara ditekan) */}
             {nowPlaying && (
                 <div className="playing-overlay" style={{ borderColor: nowPlaying.color || '#ffaa00' }}>

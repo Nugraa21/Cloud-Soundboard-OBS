@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const DEFAULT_SETTINGS = {
-    brokerUrl: 'wss://broker.hivemq.com:8443/mqtt',
+    brokerUrl: 'wss://test.mosquitto.org:8081/mqtt',
     soundListModified: false,
 };
 

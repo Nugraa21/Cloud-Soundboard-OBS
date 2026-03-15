@@ -105,7 +105,7 @@ export default function Player() {
             {/* INITIAL CONNECTION OVERLAY */}
             {!nowPlaying && (
                 <div className="connection-overlay">
-                    <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', margin: '20px', maxWidth: '400px', clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)' }}>
+                    <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', margin: '20px', maxWidth: '400px', borderRadius: '24px' }}>
                         {mqttStatus === 'connecting' && (
                             <>
                                 <div className="spinner-hud" style={{ width: '40px', height: '40px', borderTopColor: 'var(--text-primary)' }}></div>
